@@ -14,26 +14,17 @@
 // const numberOfSteps = (num: number, count: number = 0): number => {
 //   if (num <= 0) {return count;}
 //   count++;
-//   if (num % 2 === 0) {
-//     const newNum = num / 2;
-//     console.log('return', newNum, count);
-//     return numberOfSteps(newNum, count);
-//   } else {
-//     const newNum = num - 1;
-//     return numberOfSteps(newNum, count);
-//   }
+//   return num % 2 === 0 ? numberOfSteps(num / 2, count) : numberOfSteps(num - 1, count);
 // };
-// console.log(numberOfSteps(14));
-// console.log(numberOfSteps(8));
 
 const numberOfSteps = (num: number) => {
-
+  let count = 0;
+  while (num > 0) {
+    count++;
+    num = num % 2 === 0 ? num / 2 : num - 1;
+  }
+  return count;
 };
 
-// return numberOfSteps(7,1)
-// return numberOfSteps(6,2)
-// return numberOfSteps(3,3)
-// return numberOfSteps(2,4)
-// return numberOfSteps(1,5)
-// return numberOfSteps(0,6)
-// return 6
+console.log(numberOfSteps(14));
+console.log(numberOfSteps(8));
